@@ -40,7 +40,10 @@ Widget _buildAppBarLogo() {
         height: 30,
         color: Colors.redAccent,
       ),
-      SizedBox(width: gap_s), //TODO; 왜 Spacer(),는 안써짐?
+      SizedBox(width: gap_s),
+      // Spacer(),//TODO; 왜 Spacer(),는 안써질까,, 위젯간의 간격인가???
+      //sizedBox : 지정된 간격을 주고 싶을때
+      //spacer : 디바이스 크기에 따라 비율적으로 간격을 줄 때
       Text("RoomOfAll", style: h5(mColor: Colors.white))
     ],
   );
