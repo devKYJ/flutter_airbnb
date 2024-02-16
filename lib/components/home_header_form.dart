@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../styles.dart';
+import 'common/common_form_field.dart';
 
 class HomeHeaderForm extends StatelessWidget {
   const HomeHeaderForm({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class HomeHeaderForm extends StatelessWidget {
           ),
           child: Form(
             child: Padding(
-              padding: const EdgeInsets.all(gap_l),
+              padding: const EdgeInsets.all(gap_l), //4.form 내부 여백.
               child: Column(
                 children: [
                   _buildFormTitle(), // 5. Form 위젯 제목 영역
@@ -58,12 +59,63 @@ Widget _buildFormTitle() {
 
 Widget _buildFormField() {
   return Column(
-
+    children: [
+      CommonFormfield(
+        prefixText: "위치",
+        hintText: "근처 추천 장소",
+      ),
+      SizedBox(height: gap_s),
+      Row(
+        children: [
+          Expanded(
+            child: CommonFormfield(
+                prefixText: "체크인",
+                hintText: "날짜 입력"
+            ),),
+          Expanded(
+              child: CommonFormfield(
+                prefixText: "체크아웃",
+                hintText: "날짜 입력",
+              )),
+        ],
+      ),
+      SizedBox(height: gap_s),
+      Row(
+        children: [
+          Expanded(
+            child: CommonFormfield(
+                prefixText: "성인",
+                hintText: "2"
+            ),),
+          Expanded(
+              child: CommonFormfield(
+                prefixText: "어린이",
+                hintText: "0",
+              )),
+        ],
+      ),
+      SizedBox(height: gap_m),
+    ],
   );
 }
 
 Widget _buildFormSubmit() {
-  return Column(
+  return SizedBox(
+    width: double.infinity,
+    height: 50,
+    child: TextButton(
+      style: TextButton.styleFrom(
+        backgroundColor: Color(0xFFFF385C),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10)
+        )
+      ),
+      onPressed: () {
 
+    }, child: Text(
+      "검색",
+      style: subtitle1(mColor: Colors.white),
+    ),
+    ),
   );
 }
